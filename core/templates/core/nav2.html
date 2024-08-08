@@ -1,26 +1,25 @@
 {% load static %}
 {% load static tailwind_tags %}
-<nav class="flex justify-between items-center w-full px-6 lg:px-12 py-4 z-[100] bg-[#F4F4F4] bg-opacity-75">
-    <div class="flex items-center gap-2">
-        <img src="{% static 'images/mcetlogo.png' %}" alt="logo" class="w-24">
-    </div>
-
-    <div class="hidden lg:flex gap-6 desk-elements">
+<nav class="flex justify-between items-center w-full px-6 lg:px-12 py-4 absolute top-0 left-0 z-[100] bg-[#f4f4f4]">
+    <a href="/">
+        <div class="flex items-center gap-2">
+            <img src="{% static 'images/srclogo.svg' %}" alt="logo" class="w-14">
+            <p class="font-montserrat font-bold text-black max-w-[70%] lg:w-auto">Student Research Council</p>
+        </div>
+    </a>
+    <div class="hidden lg:flex gap-12 desk-elements">
         <a href="/" class="text-black">Home</a>
         <a href="" class="text-black">Events</a>
         <a href="" class="text-black">Register</a>
     </div>
-    <div class="flex items-center gap-2">
-        <img src="{% static 'images/srclogo.svg' %}" alt="logo" class="w-16">
-    </div>
     <div class="absolute top-8 lg:hidden right-6 flex gap-2 flex-col cursor-pointer navbutton">
-        <div class="h-[1px] w-9 rounded-md bg-white"></div>
-        <div class="h-[1px] w-9 rounded-md bg-white"></div>
-        <div class="h-[1px] w-9 rounded-md bg-white"></div>
+        <div class="h-[1px] w-9 rounded-md bg-black"></div>
+        <div class="h-[1px] w-9 rounded-md bg-black"></div>
+        <div class="h-[1px] w-9 rounded-md bg-black"></div>
     </div>
 
     <!-- Mobile div -->
-     <div class="transition duration-700 w-full h-[50vh] bg-[#f4f4f4] pl-12 py-6 flex flex-col absolute top-[-50vh] left-0 mobileview z-[100]">
+     <div class="transition duration-700 w-full h-[50vh] bg-[#f4f4f4] pl-12 py-6 flex flex-col absolute top-[-50vh] left-0 mobileview">
         <div class=" relative flex justify-between items-center gap-2">
             <div>
             <img src="{% static 'images/srclogo.svg' %}" alt="logo" class="w-14">

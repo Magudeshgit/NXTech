@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import Event, student
+from .models import Event, student, Submission
 
-admin.site.register([Event, student])
+admin.site.register([Event, student, Submission])

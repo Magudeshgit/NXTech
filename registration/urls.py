@@ -24,5 +24,20 @@ urlpatterns = [
     path('signup/', ctv.signup),
     path('signin/', ctv.signin),
     
-    path('home/', ctv.home),
+    path('successfull/<str:event>/<str:refid>/', ctv.successfull, name='successfull'),
+    path('registrationclosed/', ctv.closed, name='failed'),
+    
+    path('', ctv.home),
+    
+    
+    # Events
+    path('webfusionmeet/', ctv.wf),
+    path('bitwisebattle/', ctv.bitwisebattle),
+    path('designcon/', ctv.designcon),
+    path('mechanicalmayhem/', ctv.mechmayhem),
+    path('blueprintbash/', ctv.blueprintbash),
+    path('sketchup/', ctv.sketchup),
+    path('boardbonanza/', ctv.boardbonanza),
+    path('challengeshowcase/', ctv.challengeshowcase),
+    path('founder\'sfest/', ctv.foundersfest),
 ]
