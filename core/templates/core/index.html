@@ -49,7 +49,7 @@
                 <p class="font-extralight text-gray-300 lg:max-w-[80%] mt-4">
                     Present your groundbreaking business idea to a panel of industry experts, obtain their validation, and refine the concept for improvement.
                 </p>
-                 <a href="/founder\'sfest" class="mt-6">
+                 <a href="/founder'sfest/" class="mt-6">
                 <button type="button" class=" flex gap-2 items-center justify-between text-white bg-[#4f46e5] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-normal rounded-md text-lg px-12 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                     Enroll Now
                 </button>
@@ -100,49 +100,10 @@
         </span>
     </button>
 </div>
-
-<!-- Events -->
 <div class="p-6 lg:px-12" id="Events">
-    <div class="mt-4">
-        <p class="font-montserrat font-bold text-4xl text-center lg:text-left">EVENTS</p>
-    </div>
-    <!-- Event Cards -->
-    <div>
-        {% for event in data %}
-        <div class="relative flex justify-between items-center w-full rounded-md bg-[#440235] mt-6 overflow-hidden flex-wrap-reverse lg:flex-nowrap shadow-2xl">
-            <div class="lg:max-w-[50%] ml-6 my-6">
-                <p class="font-bold font-poppins text-3xl text-white">{{event.name}}</p>
-                <p class="font-extralight font-poppins text-base text-white">{{event.shortdescription}}</p>
-                <p class="font-regular font-poppins text-base text-white mt-4">Date: {{event.date}}</p>
-                <p class="font-regular font-poppins text-base text-white">Time: {{event.timing}}</p>
-                <p class="font-regular font-poppins text-base text-white">Venue: {{event.venue}}</p>
-                <p class="font-regular font-poppins text-base text-white">Total slots: {{event.limit}}</p>
-                
-                <a href='/{{ event.name|lower|cut:" " }}' class="mt-4">
-                    <button type="button" class="mt-4 flex gap-2 items-center justify-between text-white bg-[#4f46e5] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-normal rounded-md text-lg px-6 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                        Register now
-                    </button>
-                </a>
-            </div>
-            <div class="min-w-[50%] min-h-[100%] image-inset">
-                <img src="{% static event.imagepath %}" alt="..." class="min-w-[100%] min-h-[100%]">
-            </div>
-            
-            <!-- Registration closed -->
-             {% if event.closed %}
-            <div class="absolute top-0 left-0 backdrop-blur-md bg-white bg-opacity-15 flex flex-col justify-center items-center border-2 border-gray-100 rounded-md p-6 lg:p-12 w-full h-full">
-                <!-- <img src="{% static 'images/failed.svg' %}" alt=""> -->
-                <p class="text-2xl font-semibold text-white mt-4">Registration Closed</p>
-                <p class="text-sm font-medium text-white mt-2 text-center">We're sorry, but the registration for "{{event.name}}" is closed, kindly check out our other events.</p>
-            </div>
-            {%endif%}
-        </div>
-        {% endfor %}
-    </div>
-
-     <!-- Highlighted Events -->
+ <!-- Highlighted Events -->
       <!-- Founder's Fest -->
-     <div class="relative flex justify-center items-center flex-col">
+      <div class="relative flex justify-center items-center flex-col">
         <!-- Absolutes -->
         <!-- <img src="{% static 'images/dots.svg' %}" class="absolute left-[-50px] top-[225px] max-w-[50%]"> -->
         <img src="{% static 'images/redblob.svg' %}" class="absolute right-[-100px] block top-[200px] lg:top-[150px]">
@@ -206,6 +167,47 @@
     </div>
 
 
+<!-- Events -->
+
+    <div class="mt-32">
+        <p class="font-montserrat font-bold text-4xl text-center lg:text-left">EVENTS</p>
+    </div>
+    <!-- Event Cards -->
+    <div>
+        {% for event in data %}
+        <div class="relative flex justify-between items-center w-full rounded-md bg-[#440235] mt-6 overflow-hidden flex-wrap-reverse lg:flex-nowrap shadow-2xl">
+            <div class="lg:max-w-[50%] ml-6 my-6">
+                <p class="font-bold font-poppins text-3xl text-white">{{event.name}}</p>
+                <p class="font-extralight font-poppins text-base text-white">{{event.shortdescription}}</p>
+                <p class="font-regular font-poppins text-base text-white mt-4">Date: {{event.date}}</p>
+                <p class="font-regular font-poppins text-base text-white">Time: {{event.timing}}</p>
+                <p class="font-regular font-poppins text-base text-white">Venue: {{event.venue}}</p>
+                <p class="font-regular font-poppins text-base text-white">Total slots: {{event.limit}}</p>
+                
+                <a href='/{{ event.name|lower|cut:" " }}' class="mt-4">
+                    <button type="button" class="mt-4 flex gap-2 items-center justify-between text-white bg-[#4f46e5] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-normal rounded-md text-lg px-6 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                        Register now
+                    </button>
+                </a>
+            </div>
+            <div class="min-w-[50%] min-h-[100%] image-inset">
+                <img src="{% static event.imagepath %}" alt="..." class="min-w-[100%] min-h-[100%]">
+            </div>
+            
+            <!-- Registration closed -->
+             {% if event.closed %}
+            <div class="absolute top-0 left-0 backdrop-blur-md bg-white bg-opacity-15 flex flex-col justify-center items-center border-2 border-gray-100 rounded-md p-6 lg:p-12 w-full h-full">
+                <!-- <img src="{% static 'images/failed.svg' %}" alt=""> -->
+                <p class="text-2xl font-semibold text-white mt-4">Registration Closed</p>
+                <p class="text-sm font-medium text-white mt-2 text-center">We're sorry, but the registration for "{{event.name}}" is closed, kindly check out our other events.</p>
+            </div>
+            {%endif%}
+        </div>
+        {% endfor %}
+    </div>
+
+    
+
 
     
 
@@ -215,6 +217,7 @@
 <div class="p-6 lg:px-12">
     <div class="mt-12">
         <p class="font-montserrat font-bold text-4xl text-center lg:text-left">EVENT COORDINATORS</p>
+        <p class="text-gray-500">Need help registering? Contact our event Coordinators </p>
     </div>
     <div class="flex justify-evenly gap-4 lg:flex-nowrap flex-wrap">
         <div class="pb-4 flex flex-col justify-evenly max-w-[400px] backdrop-blur-md bg-white bg-opacity-25 border border-gray-300 rounded-lg mt-12 overflow-hidden shadow-lg">

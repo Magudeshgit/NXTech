@@ -114,29 +114,177 @@ def mechmayhem(request):
             model.closed = True
             model.save()
             
-            return redirect('/registrationclosed')   
-    return render(request, 'applications/mechmayhem.html', {"data":model})
+            return redirect('/registrationclosed')  
+    if not model.closed: 
+        return render(request, 'applications/mechmayhem.html', {"data":model})
+    else:
+        return redirect('/registrationclosed')
 
 def designcon(request):
     model = Event.objects.get(name="Design Con")
-    return render(request, 'applications/designcon.html', {"data":model})
+    if request.method == 'POST':
+        if Submission.objects.filter(event=model).count() <= model.limit:
+                submit = Submission.objects.create(
+                    event=model, 
+                    teamname = request.POST.get('teamname'),
+                    participant1 = request.POST.get('p1'),
+                    mail1 = request.POST.get('e1'),
+                    participant2 = request.POST.get('p2'),
+                    mail2 = request.POST.get('e2'),
+                    participant3 = request.POST.get('p3'),
+                    mail3 = request.POST.get('e3'),
+                    
+                    contact = request.POST.get('contact'),
+                    )
+                
+                return redirect(reverse('successfull', kwargs={"event": submit.event.name, "refid": submit.id}))   
+            
+        else:
+            model.closed = True
+            model.save()
+            return redirect('/registrationclosed') 
+     
+    if not model.closed:
+        return render(request, 'applications/designcon.html', {"data":model})
+    else:
+        return redirect('/registrationclosed')
 
+
+# min team 1, max 3
 def blueprintbash(request):
     model = Event.objects.get(name="Blueprint Bash")
-    return render(request, 'applications/blueprintbash.html', {"data":model})
+    if request.method == 'POST':
+        if Submission.objects.filter(event=model).count() <= model.limit:
+                submit = Submission.objects.create(
+                    event=model, 
+                    teamname = request.POST.get('teamname'),
+                    participant1 = request.POST.get('p1'),
+                    mail1 = request.POST.get('e1'),
+                    participant2 = request.POST.get('p2'),
+                    mail2 = request.POST.get('e2'),
+                    participant3 = request.POST.get('p3'),
+                    mail3 = request.POST.get('e3'),
+                    
+                    contact = request.POST.get('contact'),
+                    )
+                
+                return redirect(reverse('successfull', kwargs={"event": submit.event.name, "refid": submit.id}))   
+            
+        else:
+            model.closed = True
+            model.save()
+            
+    if not model.closed:
+        return render(request, 'applications/blueprintbash.html', {"data":model})
+    else:
+        return redirect('/registrationclosed')
 
+# min team 1, max 3
 def sketchup(request):
     model = Event.objects.get(name="SketchUp")
-    return render(request, 'applications/sketchup.html', {"data":model})
+    if request.method == 'POST':
+        if Submission.objects.filter(event=model).count() <= model.limit:
+                submit = Submission.objects.create(
+                    event=model, 
+                    teamname = request.POST.get('teamname'),
+                    participant1 = request.POST.get('p1'),
+                    mail1 = request.POST.get('e1'),
+                    participant2 = request.POST.get('p2'),
+                    mail2 = request.POST.get('e2'),
+                    participant3 = request.POST.get('p3'),
+                    mail3 = request.POST.get('e3'),
+                    
+                    contact = request.POST.get('contact'),
+                    )
+                
+                return redirect(reverse('successfull', kwargs={"event": submit.event.name, "refid": submit.id}))   
+        
+        else:
+            model.closed = True
+            model.save()
+        
+    if not model.closed:    
+        return render(request, 'applications/sketchup.html', {"data":model})
+    else:
+        return redirect('/registrationclosed')
 
+#max team 1
 def boardbonanza(request):
     model = Event.objects.get(name="Board Bonanza")
-    return render(request, 'applications/boardbonanza.html', {"data":model})
+    if request.method == 'POST':
+        if Submission.objects.filter(event=model).count() <= model.limit:
+                submit = Submission.objects.create(
+                    event=model, 
+                    teamname = request.POST.get('teamname'),
+                    participant1 = request.POST.get('p1'),
+                    mail1 = request.POST.get('e1'),
+                    
+                    contact = request.POST.get('contact'),
+                    )
+                
+                return redirect(reverse('successfull', kwargs={"event": submit.event.name, "refid": submit.id}))   
+        
+        else:
+            model.closed = True
+            model.save()
+    if not model.closed:
+        return render(request, 'applications/boardbonanza.html', {"data":model})
+    else:
+        return redirect('/registrationclosed')
 
-def challengeshowcase(request):
-    model = Event.objects.get(name="Challenge Showcase")
-    return render(request, 'applications/challengeshowcase.html', {"data":model})
 
 def foundersfest(request):
     model = Event.objects.get(name="Founder's Fest")
-    return render(request, 'applications/foundersfest.html', {"data" : model})
+    if request.method == 'POST':
+        if Submission.objects.filter(event=model).count() <= model.limit:
+                submit = Submission.objects.create(
+                    event=model, 
+                    teamname = request.POST.get('teamname'),
+                    participant1 = request.POST.get('p1'),
+                    mail1 = request.POST.get('e1'),
+                    participant2 = request.POST.get('p2'),
+                    mail2 = request.POST.get('e2'),
+                    participant3 = request.POST.get('p3'),
+                    mail3 = request.POST.get('e3'),
+                    
+                    contact = request.POST.get('contact'),
+                    )
+                
+                return redirect(reverse('successfull', kwargs={"event": submit.event.name, "refid": submit.id}))   
+        
+        else:
+            model.closed = True
+            model.save()
+            
+    if not model.closed:
+        return render(request, 'applications/foundersfest.html', {"data" : model})
+    else:
+        return redirect('/registrationclosed')
+
+
+def challengeshowcase(request):
+    model = Event.objects.get(name="Challenge Showcase")
+    if request.method == 'POST':
+        if Submission.objects.filter(event=model).count() <= model.limit:
+                submit = Submission.objects.create(
+                    event=model, 
+                    teamname = request.POST.get('teamname'),
+                    participant1 = request.POST.get('p1'),
+                    mail1 = request.POST.get('e1'),
+                    participant2 = request.POST.get('p2'),
+                    mail2 = request.POST.get('e2'),
+                    participant3 = request.POST.get('p3'),
+                    mail3 = request.POST.get('e3'),
+                    
+                    contact = request.POST.get('contact'),
+                    )
+                
+                return redirect(reverse('successfull', kwargs={"event": submit.event.name, "refid": submit.id}))   
+        
+        else:
+            model.closed = True
+            model.save()
+    if not model.closed:            
+        return render(request, 'applications/challengeshowcase.html', {"data":model})
+    else:
+        return redirect('/registrationclosed')
