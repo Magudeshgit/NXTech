@@ -44,5 +44,5 @@ urlpatterns = [
     
     
     
-    path('dataexport/', ctv.dataexport)
+    path('dataexport/mg/2ccfbef672a873d5b4dae8b3', ctv.dataexport)
 ]

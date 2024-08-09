@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>NXtech'24 || A Tech Feast</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -25,11 +25,14 @@
         <div class="hidden duration-700 ease-in-out hero" id="carousel-item-1" data-carousel-item >
             <img src="{% static 'images/mcet.png' %}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 caro-image" alt="...">
             <!-- Carousel Content -->
-            <div class="z-50 flex flex-col justify-center px-6 items-center lg:mt-24 text-center mt-auto mb-auto">
+            <div class="z-50 flex flex-col justify-center px-6 items-center lg:mt-16 text-center mt-auto mb-auto">
+                <div class="flex items-center gap-2">
+                    <img src="{% static 'images/srclogo.svg' %}" alt="logo" class="w-24">
+                </div>
                 <p class="font-medium text-xl text-white font-montserrat tracking-widest">Student Research Council</p>
                 <p class="font-extralight text-xl text-white opacity-75 mt-4">presents</p>
-                <!-- <p class="font-bold text-6xl text-white mt-6">NXTech'24</p> -->
-                <p class="font-bold text-6xl text-white mt-6">N<span class="text-pink-700">X</span>Tech'24</p>
+                <p class="font-bold text-6xl text-white mt-6">NXTech'24</p>
+                <!-- <p class="font-bold text-6xl text-white mt-6">N<span class="text-pink-700">X</span>Tech'24</p> -->
                 <p class="font-light text-lg text-white font-montserrat mt-2 tracking-widest">August 19 - 20 | Technical Symposium</p>
                 <p class="font-medium text-2xl text-white mt-6 font-poppins">Join us for a tech feast at our MCET</p>
                 <a href="#Events" class="mt-6">
@@ -214,10 +217,10 @@
 </div>
 
 <!-- Event Coordinators -->
-<div class="p-6 lg:px-12">
+<div class="p-6 lg:px-12" id="Contact">
     <div class="mt-12">
         <p class="font-montserrat font-bold text-4xl text-center lg:text-left">EVENT COORDINATORS</p>
-        <p class="text-gray-500  text-center">Need help registering? Contact our event Coordinators </p>
+        <p class="text-gray-500 lg:text-left text-center">Need help registering? Contact our event Coordinators </p>
     </div>
     <div class="flex justify-evenly gap-4 lg:flex-nowrap flex-wrap">
         <div class="pb-4 flex flex-col justify-evenly max-w-[400px] backdrop-blur-md bg-white bg-opacity-25 border border-gray-300 rounded-lg mt-12 overflow-hidden shadow-lg">

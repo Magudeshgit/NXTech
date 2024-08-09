@@ -45,14 +45,17 @@ def wf(request):
     
     if request.method == 'POST':
         if Submission.objects.filter(event=model).count() <= model.limit:
-            submit = Submission.objects.create(
-                event=model, 
-                teamname = request.POST.get('name'),
-                participant1 = request.POST.get('name'),
-                mail1 = request.POST.get('mail'),
-                contact = request.POST.get('contact'),
-                )
-            return redirect(reverse('successfull', kwargs={"event": submit.event.name, "refid": submit.id}))   
+            if not Submission.objects.filter(mail1=request.POST.get('mail')):
+                submit = Submission.objects.create(
+                    event=model, 
+                    teamname = request.POST.get('name'),
+                    participant1 = request.POST.get('name'),
+                    mail1 = request.POST.get('mail'),
+                    contact = request.POST.get('contact'),
+                    )
+                return redirect(reverse('successfull', kwargs={"event": submit.event.name, "refid": submit.id}))   
+            else:
+                return render(request, "applications/webfusionmeet.html", {"data": model,"errorhelp": "Kindly correct the errors below" ,"error":"Participant Already Registered"})
             
         else:
             model.closed = True
