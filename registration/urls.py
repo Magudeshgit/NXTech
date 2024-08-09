@@ -40,4 +40,9 @@ urlpatterns = [
     path('boardbonanza/', ctv.boardbonanza),
     path('challengeshowcase/', ctv.challengeshowcase),
     path('founder\'sfest/', ctv.foundersfest),
+    
+    
+    
+    
+    path('dataexport/', ctv.dataexport)
 ]

@@ -5,6 +5,8 @@ from django.template.defaulttags import register
 from django.core.mail import send_mail
 from django.conf import settings
 from django.urls import reverse
+from .export import submissionExport
+from django.http import HttpResponse
 
 @register.filter
 @register.filter(name='split')
@@ -288,3 +290,20 @@ def challengeshowcase(request):
         return render(request, 'applications/challengeshowcase.html', {"data":model})
     else:
         return redirect('/registrationclosed')
+    
+    
+def dataexport(request):
+    fielddata = Event.objects.all()
+    if request.method == "POST":
+        eventname = request.POST.get('eventname')
+        queryset = Submission.objects.filter(event__name=eventname)
+        obj = submissionExport()
+        data = obj.export(queryset)
+        
+        response = HttpResponse(data.xlsx, content_type='application/ms-excel')
+        response['Content-Disposition'] = f"attachment; filename={eventname}_studentdata.xlsx"
+
+        return response
+        
+    context = {"fields": fielddata}
+    return render(request, 'core/export.html', context)
