@@ -38,3 +38,5 @@ class Submission(models.Model):
     
     def __str__(self):
         return self.event.name
+    
+    

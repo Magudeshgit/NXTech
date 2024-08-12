@@ -7,6 +7,7 @@ from django.conf import settings
 from django.urls import reverse
 from .export import submissionExport
 from django.http import HttpResponse
+from django.db.models import Count
 
 @register.filter
 @register.filter(name='split')
@@ -297,6 +298,9 @@ def challengeshowcase(request):
     
 def dataexport(request):
     fielddata = Event.objects.all()
+    submissiondata = Submission.objects.all()
+    op = submissiondata.values("event__name", "event__closed").annotate(op=Count("event__name"))
+    
     if request.method == "POST":
         eventname = request.POST.get('eventname')
         queryset = Submission.objects.filter(event__name=eventname)
@@ -308,5 +312,5 @@ def dataexport(request):
 
         return response
         
-    context = {"fields": fielddata}
+    context = {"fields": fielddata, "eventdata": op}
     return render(request, 'core/export.html', context)

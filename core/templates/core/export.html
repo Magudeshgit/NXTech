@@ -1,9 +1,12 @@
+{% load static tailwind_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Export</title>
+    {% tailwind_css %}
 </head>
 <body>
     <form method="POST">
@@ -15,5 +18,26 @@
         </select>
         <input type="submit" value="submit">
     </form>
+
+    <table class="border">
+        <thead>
+            <tr class="border-2 border-black">
+                <th>Event Name</th>
+                <th>Count</th>
+                <th>Closed</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            {% for i in eventdata %}
+                <tr class="border border-black p-4">
+                    <td>{{i.event__name}}</td>
+                    <td>{{i.op}}</td>
+                    <td>{{i.event__closed}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
 </body>
 </html>
