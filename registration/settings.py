@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-jdn!gq3^-o!)rf5)262qv^&xkkb1u77p4+2nt&dgc=e*u)v__q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['src.drmcet.ac.in']
 
 
 # Application definition
@@ -145,4 +145,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 AUTH_USER_MODEL = 'core.student'
-CSRF_TRUSTED_ORIGINS = ['https://src.drmcet.ac.in', 'http://src.drmcet.ac.in', 'http://13.201.37.122']
+CSRF_TRUSTED_ORIGINS = ['https://src.drmcet.ac.in', 'http://src.drmcet.ac.in']
