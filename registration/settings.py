@@ -145,4 +145,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 AUTH_USER_MODEL = 'core.student'
-CSRF_TRUSTED_ORIGINS = ['https://src.drmcet.ac.in', 'http://src.drmcet.ac.in']
+CSRF_TRUSTED_ORIGINS = ['https://src.drmcet.ac.in', 'http://src.drmcet.ac.in', 'http://13.201.37.122']

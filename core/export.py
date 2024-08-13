@@ -10,7 +10,7 @@ class submissionExport(resources.ModelResource):
     )
     class Meta:
         model = Submission
-        fields = ('id','eventname','teamname', 'participant1', 'mail1', 'participant2', 'mail2', 'participant3', 'mail3')
+        fields = ('id','eventname','teamname', 'participant1', 'mail1', 'participant2', 'mail2', 'participant3', 'mail3','contact')
         
 # class consultancyexport(resources.ModelResource):
 
