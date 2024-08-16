@@ -1,0 +1,41 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Succesfull</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+
+    <link href="{% static 'css/main.css' %}" rel="stylesheet"/>
+    {% tailwind_css %}
+</head>
+<body>
+    <nav class="flex justify-between items-center w-full px-4 lg:px-6 py-4 z-[100] bg-[#F4F4F4] bg-opacity-75">
+        <div class="flex items-center gap-2">
+            <img src="{% static 'images/mcetlogo.png' %}" alt="logo" class="w-24">
+            <div class="flex-col flex">
+                <p class="font-medium lg:text-base text-xs">Dr.Mahalingam <br> College of Engineering and Technology</p>
+            </div>
+        </div>
+        <div class="flex">
+            <img src="{% static 'images/nxtechlogo.svg' %}" alt="logo" class=" w-32 lg:w-48">
+        </div>
+
+    </nav>
+
+
+    <div class="flex justify-center items-center flex-col p-6">
+
+        <div class="mt-6 flex flex-col justify-center items-center gap-2 max-w-[500px]">
+            <img src="{% static 'images/srclogo.svg' %}" class="drop-shadow-md w-32">
+            <p class="font-semibold text-2xl font-poppins">Registrations Closed</p>
+            <p class="font-poppins text-gray-600 text-center">We apologize for the inconvenience, but all available slots have been filled due to overwhelming demand.<br>Thank you for your interest, and we hope you'll join us for future events! - Team SRC</p>
+        </div>
+
+        <!-- <p class="text-xs text-gray-500 absolute bottom-4 text-center font-poppins">You may screenshot this page for your reference</p> -->
+    </div>
+</body>
+</html>

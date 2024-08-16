@@ -30,6 +30,9 @@ def home(request):
     data = Event.objects.all().exclude(id__in=topevents)
     topcats = Event.objects.filter(id__in=topevents)
     
+    if len(Event.objects.filter(closed=False)) == 0:
+        return render(request, 'core/closed.html')  
+    
     context = {"data": data, "topcats": topcats}
     return render(request, 'core/index.html', context)  
 
